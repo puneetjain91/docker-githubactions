@@ -1,4 +1,4 @@
-# Container image that runs your code
+# Container image that runs your own code
 FROM alpine:3.10
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
