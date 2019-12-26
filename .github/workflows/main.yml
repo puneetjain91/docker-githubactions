@@ -9,7 +9,7 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@2.11
       with:
         # The name of the image you would like to push
-        name: momoconsulting/githubactions
+        name: momoconsulting/githubactions:$(date +%s)
         # The login username for the registry
         username: momoconsulting
         # The login password for the registry
@@ -27,4 +27,4 @@ jobs:
         # Use cache when you have big images, that you would only like to build partially
         #cache: # optional
         # Use tag_names when you want to push tags/release by their git name
-        tag_names: $(date +%s)
+        #tag_names: $(date +%s)
