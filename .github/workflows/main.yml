@@ -12,4 +12,4 @@ jobs:
       with:
         name: momoconsulting/internal
         username: momoconsulting
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        password: ${{ secrets.DOCKERHUB_PASS }}
