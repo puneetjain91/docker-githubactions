@@ -4,8 +4,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: elgohr/Publish-Docker-Github-Action@2.11
     - name: Publish Docker
-      uses: elgohr/Publish-Docker-Github-Action@2.11
+    
       with:
         # The name of the image you would like to push
         name: momoconsulting/githubactions
