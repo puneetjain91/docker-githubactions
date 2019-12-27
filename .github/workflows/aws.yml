@@ -74,7 +74,7 @@ jobs:
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
-      id: task-def
+      id: task-def2
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: mytaskdef.json
