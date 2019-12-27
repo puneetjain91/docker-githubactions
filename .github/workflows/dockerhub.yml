@@ -28,23 +28,23 @@ jobs:
         #cache: # optional
         # Use tag_names when you want to push tags/release by their git name
         #tag_names: $(date +%s)
-#    - name: AWS ECR
- #     uses: kciter/aws-ecr-action@v1
-  #    with:
-   #     # The AWS access key id
-    #    access_key_id: XXXXXXXX
+    - name: AWS ECR
+      uses: kciter/aws-ecr-action@v1
+      with:
+        # The AWS access key id
+        access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         # The AWS secret access key
-     #   secret_access_key: XXXXXX
-        # AWS Account ID
-      #  account_id: XXXX
+        secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         #AWS Account ID
+        account_id: 615858367409
         # Name of your ECR repository
-       # repo: XXXX
+        repo: githubactions
         # The AWS region
-       # region: XXXX
+        region: eu-west-1
         # Set this to true to create the repository if it does not already exist
         #create_repo: # optional
         # Comma-separated string of ECR image tags
-        #tags: # optional, default is latest
+        tags: v7
         # Name of Dockerfile to use
         #dockerfile: # optional, default is Dockerfile
         # Extra flags to pass to docker build (see docs.docker.com/engine/reference/commandline/build)
