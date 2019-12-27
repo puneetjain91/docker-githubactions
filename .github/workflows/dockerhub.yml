@@ -1,4 +1,4 @@
-name: Build and Publish Docker
+name: Build and Publish to Docker Hub
 on: [push]
 jobs:
   build:
@@ -9,9 +9,9 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@2.11
       with:
         # The name of the image you would like to push
-        name: momoconsulting/githubactions:v7
+        name: cloudblog/githubactions:v7
         # The login username for the registry
-        username: momoconsulting
+        username: ${{ secrets.DOCKERHUB_USER }}
         # The login password for the registry
         password: ${{ secrets.DOCKERHUB_PASS }}
         # Use registry for pushing to a custom registry
@@ -28,19 +28,19 @@ jobs:
         #cache: # optional
         # Use tag_names when you want to push tags/release by their git name
         #tag_names: $(date +%s)
-    - name: AWS ECR
-      uses: kciter/aws-ecr-action@v1
-      with:
-        # The AWS access key id
-        access_key_id: XXXXXXXX
+#    - name: AWS ECR
+ #     uses: kciter/aws-ecr-action@v1
+  #    with:
+   #     # The AWS access key id
+    #    access_key_id: XXXXXXXX
         # The AWS secret access key
-        secret_access_key: XXXXXX
+     #   secret_access_key: XXXXXX
         # AWS Account ID
-        account_id: XXXX
+      #  account_id: XXXX
         # Name of your ECR repository
-        repo: XXXX
+       # repo: XXXX
         # The AWS region
-        region: XXXX
+       # region: XXXX
         # Set this to true to create the repository if it does not already exist
         #create_repo: # optional
         # Comma-separated string of ECR image tags
