@@ -28,15 +28,12 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@2.11
       with:
         # The name of the image you would like to push
-        name: cloudblog/nodejs_githubactions
+        name: cloudblog/nodejs_githubactions:$(date +%s)
         # The login username for the registry
         username: ${{ secrets.DOCKERHUB_USER }}
         # The login password for the registry
         password: ${{ secrets.DOCKERHUB_PASS }}
-        # Use dockerfile when you would like to explicitly build
-        dockerfile: Dockerfile
-        # Use tag_names when you want to push tags/release by their git name
-        tag_names: $(date +%s)
+
   
     - name: GitHub Action for Slack
       if: success()
@@ -44,4 +41,4 @@ jobs:
        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       uses: Ilshidur/action-slack@1.6.2
       with:
-       args: 'A new commit has been pushed.'
+       args: 'A new succesful version has been built and uploaded'
