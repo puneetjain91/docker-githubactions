@@ -25,6 +25,7 @@ jobs:
         CI: true
         
     - name: Publish Docker
+      if: success()
       uses: elgohr/Publish-Docker-Github-Action@2.11
       with:
         # The name of the image you would like to push
@@ -37,7 +38,9 @@ jobs:
         dockerfile: Dockerfile
         # Use tag_names when you want to push tags/release by their git name
         tag_names: $(date +%s)
+  
     - name: GitHub Action for Slack
+      if: success()
       env:
        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       uses: Ilshidur/action-slack@1.6.2
