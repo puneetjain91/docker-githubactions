@@ -23,6 +23,20 @@ jobs:
     - run: npm test
       env:
         CI: true
+        
+    - name: Publish Docker
+      uses: elgohr/Publish-Docker-Github-Action@2.11
+      with:
+        # The name of the image you would like to push
+        name: cloudblog/githubactions:v7
+        # The login username for the registry
+        username: ${{ secrets.DOCKERHUB_USER }}
+        # The login password for the registry
+        password: ${{ secrets.DOCKERHUB_PASS }}
+        # Use dockerfile when you would like to explicitly build
+        dockerfile: Dockerfile
+        # Use tag_names when you want to push tags/release by their git name
+        tag_names: $(date +%s)
     - name: GitHub Action for Slack
       env:
        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
