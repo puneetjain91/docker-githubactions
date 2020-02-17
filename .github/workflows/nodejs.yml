@@ -17,7 +17,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-#    - run: npm install
     - run: npm install jest --save-dev
     - run: npm run build --if-present
     - run: npm test
@@ -29,7 +28,7 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@2.11
       with:
         # The name of the image you would like to push
-        name: cloudblog/githubactions:v7
+        name: cloudblog/nodejs_githubactions
         # The login username for the registry
         username: ${{ secrets.DOCKERHUB_USER }}
         # The login password for the registry
