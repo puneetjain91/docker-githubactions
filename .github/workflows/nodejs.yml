@@ -24,4 +24,8 @@ jobs:
       env:
         CI: true
     - name: GitHub Action for Slack
+      env:
+       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       uses: Ilshidur/action-slack@1.6.2
+      with:
+       args: 'A new commit has been pushed.'
