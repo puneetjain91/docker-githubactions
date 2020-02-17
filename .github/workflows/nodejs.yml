@@ -28,11 +28,12 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@2.11
       with:
         # The name of the image you would like to push
-        name: cloudblog/nodejs_githubactions:$(date +%s)
+        name: cloudblog/nodejs_githubactions:$tag
         # The login username for the registry
         username: ${{ secrets.DOCKERHUB_USER }}
         # The login password for the registry
         password: ${{ secrets.DOCKERHUB_PASS }}
+        tag: (date +%s)
 
   
     - name: GitHub Action for Slack
