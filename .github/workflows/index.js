@@ -4,10 +4,10 @@ var app = express()
 
 //Define request response in root URL (/)
 app.get('/', function (req, res) {
-  res.send('Parece que funciona!')
+  res.send('shut')
 })
 
 //Launch listening server on port 3000
 app.listen(3000, function () {
-  console.log('Otro ejercicio conseguido!!')
+  console.log('superb')
 })
