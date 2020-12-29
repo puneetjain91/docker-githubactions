@@ -23,22 +23,31 @@ jobs:
       env:
         CI: true
         
-    - name: Publish Docker
+    - name: Run linters
       if: success()
-      uses: elgohr/Publish-Docker-Github-Action@2.11
+      uses: wearerequired/lint-action@v1
       with:
-        # The name of the image you would like to push
-        name: 9841463058/nodejs_githubactions
-        # The login username for the registry
-        username: ${{ secrets.DOCKERHUB_USER }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        # Enable linters
+        eslint: true
+        prettier: true
+        
+   # - name: Publish Docker
+   #   if: success()
+   #   uses: elgohr/Publish-Docker-Github-Action@2.11
+   #   with:
+   #     # The name of the image you would like to push
+   #     name: 9841463058/nodejs_githubactions
+   #     # The login username for the registry
+   #     username: ${{ secrets.DOCKERHUB_USER }}
         # The login password for the registry
-        password: ${{ secrets.DOCKERHUB_PASS }}
+    #    password: ${{ secrets.DOCKERHUB_PASS }}
 
   
-    - name: GitHub Action for Slack
-      if: success()
-      env:
-       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-      uses: Ilshidur/action-slack@1.6.2
-      with:
-       args: 'A new version of your Node.js app has been built'
+   # - name: GitHub Action for Slack
+   #   if: success()
+   #   env:
+   #    SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+   #   uses: Ilshidur/action-slack@1.6.2
+   #   with:
+   #    args: 'A new version of your Node.js app has been built'
